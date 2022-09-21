@@ -21,6 +21,8 @@ const useAuth = () => {
 
   const auth = getAuth();
 
+  // auth.languageCode = 'pt-BR';
+
   const register = async (data) => {
     setLoading(true);
     try {
@@ -58,7 +60,7 @@ const useAuth = () => {
     try {
       await sendEmailVerification(user);
       setMessage(
-        'E-mail de validação reenviado com sucesso. Por favor verifique sua caixa de spam.'
+        'E-mail de validação reenviado com sucesso. Por favor verifique sua caixa de entrada ou spam.'
       );
       setLoading(false);
     } catch (e) {
