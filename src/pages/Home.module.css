@@ -1,0 +1,29 @@
+.verify {
+  margin-top: 4rem;
+  width: 100%;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.verify button {
+  padding: .5rem 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: orange;
+  border: 2px solid orange;
+  border-radius: .25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.verify button:hover {  
+  color: orange ;
+  background-color: #fff;
+}

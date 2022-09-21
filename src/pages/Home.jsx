@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Form from '../components/Form';
 import useAuth from '../hooks/useAuth';
-import {AiOutlineLoading3Quarters} from 'react-icons/ai';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
+import styles from './Home.module.css'
 
 const Home = ({ verified, user }) => {
-  const { verifyEmail, loading, error:verifyError, message } = useAuth();
+  const { verifyEmail, loading, error: verifyError, message } = useAuth();
 
   const [error, setError] = useState();
 
@@ -25,19 +26,19 @@ const Home = ({ verified, user }) => {
 
   if (verified === false) {
     return (
-      <div>
+      <div className={styles.verify}>
         <h3>Verifique seu e-mail para poder utilizar o app.</h3>
-        
 
-        {!loading && <button onClick={() => verifyEmail(user)}>Enviar</button> }
+        {!loading && <button onClick={() => verifyEmail(user)}>Enviar</button>}
 
         {loading && (
-          <div >
-            <AiOutlineLoading3Quarters className="loading" size={40}/>
+          <div>
+            <AiOutlineLoading3Quarters className='loading' size={40} />
           </div>
         )}
-        {error && <p className="error">{error}</p>}
-              </div>
+        {error && <p className='error'>{error}</p>}
+        {message && <p className='success'>{message}</p>}
+      </div>
     );
   }
   return <Form />;

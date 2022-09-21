@@ -57,6 +57,9 @@ const useAuth = () => {
 
     try {
       await sendEmailVerification(user);
+      setMessage(
+        'E-mail de validação reenviado com sucesso. Por favor verifique sua caixa de spam.'
+      );
       setLoading(false);
     } catch (e) {
       setError(e.message);
