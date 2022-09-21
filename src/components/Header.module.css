@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.header>a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;;
+  font-size:1.5rem;
+
+  transition: all .3s
+}
+
+
+.header>a span {
+  color: orange;
+}
+
+.header>a:hover span {
+  color: rgb(255, 187, 60);
+}
+
+.header ul {
+  list-style-type: none;
+  display: flex;
+  align-items:center;
+  column-gap: 1rem;
+}
+
+.header li a {
+  text-decoration: none;
+  font-weight:bold;
+  color: black;
+  transition: all .2s
+}
+
+.header li a:hover{
+  color: orange;
+}

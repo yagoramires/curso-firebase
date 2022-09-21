@@ -1,0 +1,82 @@
+.authForm {
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:center;
+  row-gap: 1rem;
+  border-radius: .25rem;
+}
+
+.authForm>span {
+  color: orange;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.authForm form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+.authForm label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:center;
+  margin: .5rem 0;
+  row-gap: .5rem;
+  width: 100%;
+}
+
+.authForm label span {
+  font-weight: bold;
+}
+
+.authForm label input {
+  width: 100%;
+  padding: .5rem 0;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  outline: none;
+  padding: .5rem 1rem;
+}
+
+.authForm input[type="submit"] {
+  padding: .5rem 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: orange;
+  border: 2px solid orange;
+  border-radius: .25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+.authForm input[type="submit"]:hover {
+  
+  color: orange ;
+  background-color: #fff;
+}
+
+.authForm div {
+  margin: 1rem 0;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+.authForm p a {
+text-decoration: none;
+color: orange;
+font-weight: bold;
+}
+
+.authForm p a:hover {
+color: rgb(255, 205, 111);
+}
