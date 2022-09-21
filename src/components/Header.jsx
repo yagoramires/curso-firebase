@@ -5,10 +5,9 @@ import useAuth from '../hooks/useAuth';
 
 import styles from './Header.module.css';
 
-const header = ({user}) => {
+const header = ({ user }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const {logout} = useAuth()
-  console.log(user);
+  const { logout } = useAuth();
 
   return (
     <header className={styles.header}>
@@ -33,7 +32,9 @@ const header = ({user}) => {
         <nav>
           <ul>
             <li>
-              <a href="/" onClick={logout}>Sair</a>
+              <a href='/' onClick={logout}>
+                Sair
+              </a>
             </li>
           </ul>
         </nav>

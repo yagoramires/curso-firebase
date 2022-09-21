@@ -20,8 +20,6 @@ function App() {
     });
   }, [auth]);
 
-  console.log(user);
-
   if (user === undefined) {
     return <p>Carregando...</p>;
   }
@@ -30,7 +28,16 @@ function App() {
     <div className='App'>
       <Header user={user} />
       <Routes>
-        <Route path='/' element={user ? <Home /> : <Login />} />
+        <Route
+          path='/'
+          element={
+            user ? (
+              <Home verified={user.emailVerified} user={user} />
+            ) : (
+              <Login />
+            )
+          }
+        />
         <Route
           path='/login'
           element={!user ? <Login /> : <Navigate to='/' />}

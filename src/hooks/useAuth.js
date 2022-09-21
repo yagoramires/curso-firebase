@@ -9,6 +9,7 @@ import {
   updatePassword,
   updateProfile,
   sendPasswordResetEmail,
+  sendEmailVerification,
 } from 'firebase/auth';
 
 import { useState } from 'react';
@@ -23,7 +24,12 @@ const useAuth = () => {
   const register = async (data) => {
     setLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      await user.sendEmailVerification();
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -46,12 +52,25 @@ const useAuth = () => {
     signOut(auth);
   };
 
+  const verifyEmail = async (user) => {
+    setLoading(true);
+
+    try {
+      await sendEmailVerification(user);
+      setLoading(false);
+    } catch (e) {
+      setError(e.message);
+      setLoading(false);
+    }
+  };
+
   return {
     auth,
     loading,
     error,
     message,
     register,
+    verifyEmail,
     login,
     logout,
   };
