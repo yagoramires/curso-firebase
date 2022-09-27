@@ -20,8 +20,10 @@ const useAuth = () => {
   const [loading, setLoading] = useState(null);
 
   const auth = getAuth();
-
-  // auth.languageCode = 'pt-BR';
+  auth.languageCode = 'pt-BR';
+  const actionCodeSettings = {
+    url: 'http://192.168.1.8:3000',
+  };
 
   const register = async (data) => {
     setLoading(true);
@@ -58,10 +60,38 @@ const useAuth = () => {
     setLoading(true);
 
     try {
-      await sendEmailVerification(user);
+      await sendEmailVerification(user, actionCodeSettings);
       setMessage(
         'E-mail de validação reenviado com sucesso. Por favor verifique sua caixa de entrada ou spam.'
       );
+      setLoading(false);
+    } catch (e) {
+      setError(e.message);
+      setLoading(false);
+    }
+  };
+
+  const resetPassword = async (email) => {
+    setLoading(true);
+
+    try {
+      await sendPasswordResetEmail(auth, email, actionCodeSettings);
+      setMessage(
+        'E-mail enviado com sucesso, verifique sua caixa de entrada ou spam.'
+      );
+      setLoading(false);
+    } catch (e) {
+      setError(e.message);
+      setLoading(false);
+    }
+  };
+
+  const updateUser = async (user, data) => {
+    setLoading(true);
+
+    try {
+      await updateProfile(user, data);
+      setMessage('Dados atualizados com sucesso!');
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -78,6 +108,8 @@ const useAuth = () => {
     verifyEmail,
     login,
     logout,
+    resetPassword,
+    updateUser,
   };
 };
 

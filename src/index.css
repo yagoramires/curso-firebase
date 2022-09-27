@@ -52,3 +52,7 @@ to {
   border-radius: .25rem;
   text-align: center;
 }
+
+.hidden {
+  display: none!important;
+}

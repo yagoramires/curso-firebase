@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import styles from './Auth.module.css';
 
+import PasswordRecover from '../components/PasswordRecover'
+
 import {AiOutlineLoading3Quarters} from 'react-icons/ai';
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
+  const [modalActive, setModalActive] = useState(false);
 
   const { login, error: loginError, loading } = useAuth();
 
@@ -68,12 +71,13 @@ const Login = () => {
       </form>
 
       <p>
-        Esqueceu sua senha? Recupere-a
+        Esqueceu sua senha? <button onClick={()=>setModalActive(true)}> Recupere-a </button>
       </p>
 
       <p>
         Não possui conta? <Link to='/register'>Registre-se</Link>
       </p>
+      <PasswordRecover modalActive={modalActive} setModalActive={setModalActive} insertedEmail={email}/>
     </div>
   );
 };

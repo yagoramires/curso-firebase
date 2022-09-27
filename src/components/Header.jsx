@@ -32,6 +32,9 @@ const header = ({ user }) => {
         <nav>
           <ul>
             <li>
+          <NavLink to='profile'>Perfil</NavLink>
+            </li>
+            <li>
               <a href='/' onClick={logout}>
                 Sair
               </a>

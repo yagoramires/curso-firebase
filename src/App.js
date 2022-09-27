@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 
 function App() {
   const [user, setUser] = useState(undefined);
@@ -45,6 +46,10 @@ function App() {
         <Route
           path='/register'
           element={!user ? <Register /> : <Navigate to='/' />}
+        />
+        <Route
+          path='/profile'
+          element={user ? <Profile user={user} /> : <Navigate to='/' />}
         />
       </Routes>
     </div>

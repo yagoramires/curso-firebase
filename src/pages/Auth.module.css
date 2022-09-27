@@ -71,12 +71,20 @@
   justify-content:center;
 }
 
-.authForm p a {
+.authForm p a, button {
+font-size: 1rem;
+cursor: pointer;
+border: none;
+background-color: transparent;
 text-decoration: none;
 color: orange;
 font-weight: bold;
 }
 
-.authForm p a:hover {
+.authForm p a:hover, button:hover {
 color: rgb(255, 205, 111);
+}
+
+.hidden {
+  display: none;
 }
